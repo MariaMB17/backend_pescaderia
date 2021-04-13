@@ -15,18 +15,18 @@ class CreateSucursalTable extends Migration
     {
         Schema::create('sucursal', function (Blueprint $table) {
             $table->increments("id");
-            $table->string("name",255)->comment('NOMBRE DE LA SUCURSALES');
-            $table->text("descripcion")->comment('DESCRIPCION DE LA SUCURSALES');
-            $table->string("direccion",255)->comment('DIRECCION DE LA SUCURSALES');   
-            $table->string("telefono",45)->comment('TELEFONO DE LA SUCURSALES');
-            $table->string("correo",45)->comment('CORREO DE LA SUCURSALES');
+            $table->string("sucursal_name",255)->comment('NOMBRE DE LA SUCURSALES');
+            $table->text("sucursal_descripcion")->comment('DESCRIPCION DE LA SUCURSALES');
+            $table->string("sucursal_direccion",255)->comment('DIRECCION DE LA SUCURSALES');   
+            $table->string("sucursal_telefono",45)->comment('TELEFONO DE LA SUCURSALES');
+            $table->string("sucursal_correo",45)->comment('CORREO DE LA SUCURSALES');
             $table->integer('empresa_id')
                   ->unsigned()->nullable();
             $table->foreign('empresa_id')
             ->references('id')
             ->on('empresa')
-            ->onDelete('set null')
-            ->onUpdate('set null');
+            ->onDelete('RESTRICT')
+            ->onUpdate('CASCADE');
             $table->timestamps();
             $table->engine = 'InnoDB';	
             $table->charset = 'utf8';	

@@ -5,7 +5,7 @@ namespace App\Models\Api;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class moneda extends Model
+class MonedaModel extends Model
 {
     use HasFactory;
     protected $table = 'moneda';
@@ -15,7 +15,11 @@ class moneda extends Model
         'moneda_descripcion',
         'moneda_simbolo',
         'moneda_abrev',
-        'moneda_status'
+        'moneda_status',
+        'empresa_id'
     ];
     protected $hidden = ['created_at','updated_at'];
+    public function Empresa() {
+        return $this->belongsTo(EmpresaModel::class, 'id', 'empresa_id');
+    }
 }

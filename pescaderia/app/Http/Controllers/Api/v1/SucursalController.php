@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\v1;
 
-use App\Models\ProductoModel;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ProductoModelController extends Controller
+class SucursalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class ProductoModelController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ProductoModel  $productoModel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(ProductoModel $productoModel)
+    public function show($id)
     {
         //
     }
@@ -52,10 +52,10 @@ class ProductoModelController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\ProductoModel  $productoModel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProductoModel $productoModel)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +64,10 @@ class ProductoModelController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ProductoModel  $productoModel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProductoModel $productoModel)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +75,10 @@ class ProductoModelController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\ProductoModel  $productoModel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProductoModel $productoModel)
+    public function destroy($id)
     {
         //
     }

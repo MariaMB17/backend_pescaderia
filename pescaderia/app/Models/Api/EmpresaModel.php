@@ -5,7 +5,7 @@ namespace App\Models\Api;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class empresa extends Model
+class EmpresaModel extends Model
 {
     use HasFactory;
     protected $table = 'empresa';
@@ -19,6 +19,6 @@ class empresa extends Model
     ];
     protected $hidden = ['created_at','updated_at'];
     public function sucursales() {
-        return $this->hasMany(Sucursal::class, 'empresa_id');
+        return $this->hasMany(SucursalModel::class, 'empresa_id');
     }
 }

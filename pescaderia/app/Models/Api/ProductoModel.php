@@ -22,6 +22,10 @@ class ProductoModel extends Model
     }
 
     public function tipoProducto() {
-        return $this->belongsTo(TipoProductoModel::class,'id','prod_cat_id');
+        return $this->belongsTo(TipoProductoModel::class,'id','prod_tipo_id');
+    }
+
+    public function CompraDetalles() {
+        return $this->hasMany(CompraDetalleModel::class, 'producto_id', 'id');
     }
 }

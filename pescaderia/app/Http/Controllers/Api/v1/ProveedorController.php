@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\v1;
 
-use App\Models\Api\TipoProductoModel;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class TipoProductoModelController extends Controller
+class ProveedorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class TipoProductoModelController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Api\TipoProductoModel  $tipoProductoModel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(TipoProductoModel $tipoProductoModel)
+    public function show($id)
     {
         //
     }
@@ -52,10 +52,10 @@ class TipoProductoModelController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Api\TipoProductoModel  $tipoProductoModel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(TipoProductoModel $tipoProductoModel)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +64,10 @@ class TipoProductoModelController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Api\TipoProductoModel  $tipoProductoModel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TipoProductoModel $tipoProductoModel)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +75,10 @@ class TipoProductoModelController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Api\TipoProductoModel  $tipoProductoModel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TipoProductoModel $tipoProductoModel)
+    public function destroy($id)
     {
         //
     }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddProveedorToCompra extends Migration
+class AddIdEmpresaToMoneda extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class AddProveedorToCompra extends Migration
      */
     public function up()
     {
-        Schema::table('compra', function (Blueprint $table) {
-            $table->integer('proveedor_id')->unsigned()->nullable()->comment('ID DEL PROVEEDOR')->after('compra_fecha');
-            $table->foreign('proveedor_id')
+        Schema::table('moneda', function (Blueprint $table) {
+            $table->integer('empresa_id')->unsigned()->nullable()->comment('ID DE LA EMPRESA')->after('moneda_status');
+            $table->foreign('empresa_id')
             ->references('id')
-            ->on('proveedor')
+            ->on('empresa')
             ->onDelete('RESTRICT')
-            ->onUpdate('CASCADE');  
+            ->onUpdate('CASCADE'); 
         });
     }
 
@@ -30,8 +30,8 @@ class AddProveedorToCompra extends Migration
      */
     public function down()
     {
-        Schema::table('compra', function (Blueprint $table) {
-            $table->dropColumn('proveedor_id');
+        Schema::table('moneda', function (Blueprint $table) {
+            $table->dropColumn('empresa_id');
         });
     }
 }

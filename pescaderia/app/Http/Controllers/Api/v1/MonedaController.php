@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\v1;
 
-use App\Models\Api\CategoriaModel;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class CategoriaModelController extends Controller
+class MonedaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class CategoriaModelController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Api\CategoriaModel  $categoriaModel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(CategoriaModel $categoriaModel)
+    public function show($id)
     {
         //
     }
@@ -52,10 +52,10 @@ class CategoriaModelController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Api\CategoriaModel  $categoriaModel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(CategoriaModel $categoriaModel)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +64,10 @@ class CategoriaModelController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Api\CategoriaModel  $categoriaModel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CategoriaModel $categoriaModel)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +75,10 @@ class CategoriaModelController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Api\CategoriaModel  $categoriaModel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CategoriaModel $categoriaModel)
+    public function destroy($id)
     {
         //
     }

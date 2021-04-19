@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 
 
@@ -20,25 +22,27 @@ class AuthController extends Controller
         $request->validate([
             'name' => 'required|string',
             'email' => 'required|string|email|unique:users',
-            'password' => 'required|string',
-            'password_confirmation' => 'required|string'
+            'password' => 'required|string|min:6|confirmed',
+            // 'password_confirmation' => 'required|string'
         ]);
         
-        if ($request->password !== $request->password_confirmation) {
-            return response()->json([
-                'message' => 'Password confirmation mismatch'
-            ], 401);
-        }
+        // if ($request->password !== $request->password_confirmation) {
+        //     return response()->json([
+        //         'message' => 'Password confirmation mismatch'
+        //     ], 401);
+        // }
 
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password)
-        ]);
+        $request['password']=Hash::make($request['password']);
+        $request['remember_token'] = Str::random(10);
+        $user = User::create($request->toArray());
+        $token = $user->createToken('Laravel Password Grant Client')->accessToken;
+        $response = ['token' => $token];
+        $response['message'] = 'Successfully user created!';
+        return response($response, 200);
 
-        return response()->json([
-            'message' => 'Successfully created user!'
-        ], 201);
+        // return response()->json([
+        //     'message' => 'Successfully created user!'
+        // ], 201);
     }
      /**
      * Inicio de sesión y creación de token
